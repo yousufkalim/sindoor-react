@@ -1,0 +1,66 @@
+/* Header Component Style */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Mulish:ital@1&display=swap");
+.sindoor_second_div {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+}
+.sindoor_header_menu {
+  margin: 0 0 0 70px;
+}
+.sindoor_li {
+  list-style: none;
+  margin: 0 20px 0 0;
+}
+.sindoor_ankerMeu {
+  color: #212121;
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Inter";
+  margin: 0 46px 0 0px;
+  text-decoration: none;
+}
+.sindoor_downloadApp_div {
+  margin-left: auto;
+}
+.downloadApp_btn {
+  background: none;
+  border: 1px solid #e45a5a;
+  border-radius: 30px;
+  padding: 8px 30px;
+  color: #e45a5a;
+  font-size: 20px;
+  font-weight: 500;
+}
+.sindoorActive {
+  color: #e45a5a;
+  font-size: 22px;
+  font-weight: 700;
+}
+@media screen and (max-width: 600px) {
+  .sindoor_Logo {
+    width: 60%;
+  }
+  .sindoor_second_div {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sindoor_header_menu {
+    margin: auto;
+  }
+  .sindoor_ankerMeu {
+    font-size: 14px;
+    margin: 0;
+    padding: 0 15px;
+  }
+  .sindoor_downloadApp_div {
+    margin: auto;
+  }
+  .downloadApp_btn {
+    padding: 2px 13px;
+    margin: 6px 0 0 0;
+    font-size: 16px;
+  }
+}
