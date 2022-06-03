@@ -1,0 +1,41 @@
+body {
+  font-family: "Inter";
+}
+.Features_center_div {
+  border: 1px solid red;
+  width: 90%;
+  margin: auto;
+  padding: 11vw 0 5vw 0;
+}
+.Features_heading {
+  text-align: center;
+  width: 31vw;
+  margin: auto;
+}
+.Features_title {
+  font-size: 2.3vw;
+}
+.Features_p {
+  font-size: 1.1vw;
+  color: #747474;
+  padding-top: 1vw;
+}
+.Features_3colmn_div {
+  display: flex;
+  padding: 5vw 0 0 0;
+}
+.Features_colmn {
+  padding: 0 2vw;
+}
+.Features_clnder {
+  width: 6.5vw;
+}
+.Features_tile_h3 {
+  padding: 2vw 0 1vw 0;
+  font-size: 1.7vw;
+  font-weight: 700;
+}
+.Features_colmn_p {
+  font-size: 1.1vw;
+  color: #747474;
+}
