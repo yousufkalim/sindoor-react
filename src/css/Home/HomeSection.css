@@ -1,0 +1,37 @@
+body {
+  font-family: "Inter";
+}
+.homeSection_center_div {
+  display: flex;
+  width: 95%;
+  margin-left: auto;
+}
+.homeSection_colmn1 {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.homeSection_content_div {
+  width: 37vw;
+}
+.manage_Title {
+  font-size: 3.2vw;
+  font-weight: 800;
+}
+.manage_p {
+  color: #747474;
+  font-weight: 400;
+  padding: 2vw 0;
+  font-size: 1.1vw;
+  line-height: 2.1vw;
+}
+.mobile_IMG {
+  width: 100%;
+}
+.Google_btn {
+  margin-left: 15px;
+  width: 13vw;
+}
+.AppStore_btn {
+  width: 13vw;
+}

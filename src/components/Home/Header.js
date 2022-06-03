@@ -1,7 +1,7 @@
 // Init
 import React from "react";
-import "../css/Home/Header.css";
-import HeaderLogo from "../assets/Icons/HeaderLogo.svg";
+
+import HeaderLogo from "../../assets/Icons/HeaderLogo.svg";
 
 // Component
 export default function Header() {
