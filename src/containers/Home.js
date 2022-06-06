@@ -5,6 +5,7 @@ import React from "react";
 import Header from "../components/Home/Header";
 import HomeSection from "../components/Home/HomeSection";
 import Features from "../components/Home/Features";
+import GetaQuote from "../components/Home/GetaQuote";
 
 // Home Component
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <HomeSection />
       <Features />
+      <GetaQuote />
     </div>
   );
 }
