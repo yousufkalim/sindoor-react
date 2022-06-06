@@ -1,0 +1,53 @@
+.footer_center_Div {
+  background-color: #fffafa;
+  text-align: center;
+}
+.footer_content {
+  border-bottom: 1px solid gray;
+}
+.sindoor_footer_Logo {
+  padding-top: 3vw;
+  width: 10vw;
+}
+.footer_p {
+  padding: 1.4vw 0;
+  font-size: 1.2vw;
+}
+.footer_AppStore_btn,
+.footer_Google_btn {
+  width: 7vw;
+}
+.footer_Google_btn {
+  margin-left: 1vw;
+}
+.downloads_app_div2 {
+  padding: 1.3vw 1.3vw;
+}
+.terms_p,
+.privacy_p {
+  font-size: 1.1vw;
+  font-weight: 700;
+  color: #484848;
+}
+.privacy_p {
+  margin-left: 1vw;
+}
+.foooter_sign_div {
+  padding: 1.6vw;
+}
+.footer_year,
+.footer_develop,
+.footer_company_allRights {
+  font-size: 1.1vw;
+  font-weight: 400;
+}
+.footer_name {
+  color: #e45a5a;
+  font-weight: 700;
+  font-size: 1.1vw;
+}
+.footer_company_name {
+  color: #3737b9;
+  font-weight: 700;
+  font-size: 1.1vw;
+}

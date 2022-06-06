@@ -4,12 +4,14 @@
 .Ellipse1 {
   position: absolute;
   z-index: -1;
+  width: 27vw;
 }
 .Ellipse2 {
   position: absolute;
   z-index: -1;
   bottom: -16vw;
   right: 0;
+  width: 14vw;
 }
 .GetaQuote_center_Div {
   width: 90%;
