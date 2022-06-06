@@ -5,12 +5,14 @@
   background-image: url("../../assets/Image/AppStoreBg.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 32.5vw;
+  height: 29.1vw;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   text-align: center;
+  width: 90%;
+  margin: auto;
 }
 
 .AppStore_p {

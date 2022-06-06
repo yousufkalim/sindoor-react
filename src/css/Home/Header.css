@@ -25,6 +25,9 @@
   margin: 0 4vw 0 0px;
   text-decoration: none;
 }
+.sindoor_ankerMeu:active {
+  color: #e45a5a;
+}
 .sindoor_downloadApp_div {
   margin-left: auto;
 }
@@ -36,6 +39,10 @@
   color: #e45a5a;
   font-size: 1.3vw;
   font-weight: 500;
+}
+.downloadApp_btn:hover {
+  background-color: #e45a5a;
+  color: #fff;
 }
 .sindoorActive {
   color: #e45a5a;

@@ -28,7 +28,7 @@ const getForm = () => {
     });
     setFormData(
       { fullname: "", email: "", message: "" },
-      toast.success("submited form")
+      toast.success("Submited Form")
     );
   };
 
@@ -38,7 +38,7 @@ const getForm = () => {
   };
   return (
     <>
-      <fiv className="GetaQuote_form_div">
+      <fiv className="GetaQuote_form_div" id="getForm">
         <form
           action=""
           className="GetaQuote_main_form"

@@ -7,7 +7,7 @@ import Bell from "../../assets/Icons/Bell.svg";
 const Features = () => {
   return (
     <>
-      <div className="Features_main_div">
+      <div className="Features_main_div" id="Features">
         <div className="Features_center_div">
           {/* Features_heading */}
           <div className="Features_heading">

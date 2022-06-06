@@ -16,6 +16,7 @@
 .footer_AppStore_btn,
 .footer_Google_btn {
   width: 7vw;
+  cursor: pointer;
 }
 .footer_Google_btn {
   margin-left: 1vw;
