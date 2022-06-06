@@ -18,7 +18,7 @@ export default function Header() {
           <div className="sindoor_header_menu">
             <ul className="sindoor_ul">
               <li className="sindoor_li">
-                <a className="sindoor_ankerMeu sindoorActive" href="#">
+                <a className="sindoor_ankerMeu sindoorActive" href="#about">
                   About
                 </a>
                 <a className="sindoor_ankerMeu" href="#Features">

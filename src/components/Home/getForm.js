@@ -10,14 +10,14 @@ const getForm = () => {
 
   const formSubmitClick = (e) => {
     e.preventDefault();
-    // return toast.error("Please enter your username");
-    if (formData.fullname == "") {
+
+    if (formData.fullname === "") {
       return toast.error("Please enter your username");
     }
-    if (formData.email == "") {
+    if (formData.email === "") {
       return toast.error("Please enter your email");
     }
-    if (formData.message == "") {
+    if (formData.message === "") {
       return toast.error("Please enter you message");
     }
 
@@ -38,7 +38,7 @@ const getForm = () => {
   };
   return (
     <>
-      <fiv className="GetaQuote_form_div" id="getForm">
+      <div className="GetaQuote_form_div" id="getForm">
         <form
           action=""
           className="GetaQuote_main_form"
@@ -93,7 +93,7 @@ const getForm = () => {
             </button>
           </div>
         </form>
-      </fiv>
+      </div>
     </>
   );
 };

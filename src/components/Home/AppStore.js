@@ -6,7 +6,7 @@ import Google from "../../assets/Icons/Google.svg";
 const AppStore = () => {
   return (
     <>
-      <div className="AppStore_mainDiv">
+      <div className="AppStore_mainDiv" id="about">
         <div className="AppStore_center_div">
           <div className="AppStore_content">
             <p className="AppStore_p">
