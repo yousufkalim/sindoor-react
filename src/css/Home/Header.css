@@ -19,11 +19,14 @@
 }
 .sindoor_ankerMeu {
   color: #212121;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-weight: 400;
   font-family: "Inter";
-  margin: 0 46px 0 0px;
+  margin: 0 4vw 0 0px;
   text-decoration: none;
+}
+.sindoor_ankerMeu:active {
+  color: #e45a5a;
 }
 .sindoor_downloadApp_div {
   margin-left: auto;
@@ -37,9 +40,13 @@
   font-size: 1.3vw;
   font-weight: 500;
 }
+.downloadApp_btn:hover {
+  background-color: #e45a5a;
+  color: #fff;
+}
 .sindoorActive {
   color: #e45a5a;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-weight: 700;
 }
 .sindoor_Logo {
@@ -53,10 +60,8 @@
   .sindoor_header_menu {
     margin: auto;
   }
-  .sindoor_ankerMeu {
-    font-size: 14px;
+  .sindoor_li {
     margin: 0;
-    padding: 0 15px;
   }
   .sindoor_downloadApp_div {
     margin: auto;
