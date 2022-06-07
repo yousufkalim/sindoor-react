@@ -1,5 +1,5 @@
 // Init
-import React from "react";
+import React, { useEffect } from "react";
 
 // Importing Components
 import Header from "../components/Home/Header";
@@ -11,6 +11,16 @@ import Footer from "../components/Home/Footer";
 
 // Home Component
 export default function Home() {
+  React.useState(false);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 1,
+      behavior: "smooth",
+    });
+  };
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <div>
       <Header />

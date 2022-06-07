@@ -1,6 +1,5 @@
 // Init
 import React from "react";
-
 import HeaderLogo from "../../assets/Icons/HeaderLogo.svg";
 
 // Component
