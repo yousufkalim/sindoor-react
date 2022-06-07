@@ -30,7 +30,12 @@ const Footer = () => {
             <span className="footer_year">© 2022 </span>
             <span className="footer_name">Sindoor, </span>
             <span className="footer_develop">Developed by </span>
-            <span className="footer_company_name">Falcon Consulting. </span>
+            <a
+              href="https://www.falconconsulting.fr"
+              className="footer_company_name"
+            >
+              Falcon Consulting.{" "}
+            </a>
             <span className="footer_company_allRights">
               All rights reserved.
             </span>
