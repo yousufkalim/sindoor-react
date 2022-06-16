@@ -47,7 +47,7 @@ render(){
       <i onClick={()=>
             this.setState({showFileInfo: !this.state.showFileInfo})} 
             className= {this.state.showFileInfo?'fas fa-minus icon': 'fas fa-plus icon'} ></i>
-            {console.log(this.state.showFileInfo,"<<<<")}
+           
             
       </h4>
       </div>
@@ -81,7 +81,7 @@ render(){
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 2 - Sindoor Legal 
       <i onClick={()=>
             this.setState({showFileInfo2: !this.state.showFileInfo2})} 
-            className='fas fa-plus icon'></i>  
+            className= {this.state.showFileInfo2?'fas fa-minus icon': 'fas fa-plus icon'} ></i>
       </h4>
       </div>
       {showFileInfo2 ? (
@@ -113,7 +113,7 @@ render(){
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 3 - Sindoor Legal 
       <i onClick={()=>
             this.setState({showFileInfo3: !this.state.showFileInfo3})} 
-            className='fas fa-plus icon'></i>  
+            className= {this.state.showFileInfo3?'fas fa-minus icon': 'fas fa-plus icon'} ></i>
       </h4>
       </div>
       {showFileInfo3 ? (
@@ -145,7 +145,7 @@ render(){
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 4 - Sindoor Legal 
       <i onClick={()=>
             this.setState({showFileInfo4: !this.state.showFileInfo4})} 
-            className='fas fa-plus icon'></i>  
+            className= {this.state.showFileInfo4?'fas fa-minus icon': 'fas fa-plus icon'} ></i>  
       </h4>
       </div>
       {showFileInfo4 ? (
@@ -177,7 +177,7 @@ render(){
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 5 - Sindoor Legal 
       <i onClick={()=>
             this.setState({showFileInfo5: !this.state.showFileInfo5})} 
-            className='fas fa-plus icon'></i>  
+            className= {this.state.showFileInfo5?'fas fa-minus icon': 'fas fa-plus icon'} ></i>  
       </h4>
       </div>
       {showFileInfo5 ? (
@@ -209,7 +209,7 @@ render(){
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 6 - Sindoor Legal 
       <i onClick={()=>
             this.setState({showFileInfo6: !this.state.showFileInfo6})} 
-            className='fas fa-plus icon'></i>  
+            className= {this.state.showFileInfo6?'fas fa-minus icon': 'fas fa-plus icon'} ></i> 
       </h4>
       </div>
       {showFileInfo6 ? (
