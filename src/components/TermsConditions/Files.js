@@ -5,7 +5,7 @@ import SindoorLegala from '../../../src/assets/pdf/SindoorLegala.pdf';
 import DownloadIconImg from "../../assets/Image/DownloadIconImg.png";
 import pdficon from "../../assets/Image/pdficon.png"
 import tittleimage from "../../assets/Image/tittleimage.png"
-import dashimage from "../../assets/Image/dashimage.png"
+import dashimage from "../../assets/Image/dashimage.png";
 
 class Files extends Component{
 
@@ -41,13 +41,13 @@ render(){
   return (
     <div>
 
-
-    <div className='card card-body mb-3'>
+    <div className='card card-body mb-1'>
       <div className='tittle'>
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 1 - Sindoor Legal 
       <i onClick={()=>
             this.setState({showFileInfo: !this.state.showFileInfo})} 
-            className='fas fa-plus icon'></i>
+            className= {this.state.showFileInfo?'fas fa-minus icon': 'fas fa-plus icon'} ></i>
+            {console.log(this.state.showFileInfo,"<<<<")}
             
       </h4>
       </div>
@@ -76,7 +76,7 @@ render(){
 
 
 
-    <div className='card card-body mb-3'>
+    <div className='card card-body mb-1'>
       <div className='tittle'>
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 2 - Sindoor Legal 
       <i onClick={()=>
@@ -108,7 +108,7 @@ render(){
     </div>
 
 
-    <div className='card card-body mb-3'>
+    <div className='card card-body mb-1'>
       <div className='tittle'>
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 3 - Sindoor Legal 
       <i onClick={()=>
@@ -140,7 +140,7 @@ render(){
     </div>
 
 
-    <div className='card card-body mb-3'>
+    <div className='card card-body mb-1'>
       <div className='tittle'>
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 4 - Sindoor Legal 
       <i onClick={()=>
@@ -172,7 +172,7 @@ render(){
     </div>
 
 
-    <div className='card card-body mb-3'>
+    <div className='card card-body mb-1'>
       <div className='tittle'>
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 5 - Sindoor Legal 
       <i onClick={()=>
@@ -204,7 +204,7 @@ render(){
     </div>
 
 
-    <div className='card card-body mb-3'>
+    <div className='card card-body mb-1'>
       <div className='tittle'>
       <h4 className='filetittle' > <img src={tittleimage}/> &nbsp; &nbsp; 6 - Sindoor Legal 
       <i onClick={()=>
