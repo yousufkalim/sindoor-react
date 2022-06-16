@@ -1,7 +1,6 @@
 // Init
 import React from "react";
 import HeaderLogo from "../../assets/Icons/HeaderLogo.svg";
-
 // Component
 export default function Header() {
   return (
