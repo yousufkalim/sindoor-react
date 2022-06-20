@@ -3,6 +3,7 @@ import "../../css/Home/Footer.css";
 import HeaderLogo from "../../assets/Icons/HeaderLogo.svg";
 import Apple from "../../assets/Icons/Apple.svg";
 import Google from "../../assets/Icons/Google.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -21,7 +22,7 @@ const Footer = () => {
               <img src={Google} alt="" className="footer_Google_btn" />
             </div>
             <div className="downloads_app_div2">
-              <span className="terms_p">Terms & Conditions</span>
+              <Link to='/termsconditions' className="terms_p">Terms & Conditions</Link>
               <span className="privacy_p">Privacy Policy</span>
             </div>
           </div>
