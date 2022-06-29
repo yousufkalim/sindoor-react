@@ -1088,7 +1088,7 @@ const AddBankNative = () => {
                   </Typography>
 
                   <div className={classes.imgDiv}>
-                    <div>
+                    <div style={{ width: "50%" }}>
                       <label
                         htmlFor="front"
                         style={{
@@ -1119,6 +1119,8 @@ const AddBankNative = () => {
                           style={{
                             color: frontError ? "#E45A5A" : "",
                             fontSize: frontError ? "12px" : "16px",
+                            wordBreak: "break-all",
+                            width: "80%",
                           }}
                         >
                           {front
@@ -1130,7 +1132,7 @@ const AddBankNative = () => {
                       </label>
                     </div>
 
-                    <div>
+                    <div style={{ width: "50%" }}>
                       <label
                         htmlFor="back"
                         style={{
@@ -1162,6 +1164,8 @@ const AddBankNative = () => {
                           style={{
                             color: backError ? "#E45A5A" : "",
                             fontSize: backError ? "12px" : "16px",
+                            wordBreak: "break-all",
+                            width: "80%",
                           }}
                         >
                           {back
