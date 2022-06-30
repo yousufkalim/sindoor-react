@@ -6,3 +6,23 @@
     text-align: center;
     margin-top: 1rem;
 }
+ul li{
+list-style-type: decimal;
+font-size: 14px;
+}
+.spanText{
+    font-weight: 600;
+}
+.termsContactDetails{
+    margin: 0;
+}
+.termsParagraph{
+    font-weight: 500;
+}
+.underlineText{
+    color: red;
+    text-decoration: underline;
+}
+.listStyleType{
+    list-style-type: circle;
+}
