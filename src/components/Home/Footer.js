@@ -1,8 +1,8 @@
-import React from "react";
-import "../../css/Home/Footer.css";
-import HeaderLogo from "../../assets/Icons/HeaderLogo.svg";
-import Apple from "../../assets/Icons/Apple.svg";
-import Google from "../../assets/Icons/Google.svg";
+import React from 'react';
+import '../../css/Home/Footer.css';
+import HeaderLogo from '../../assets/Icons/HeaderLogo.svg';
+import Apple from '../../assets/Icons/Apple.svg';
+import Google from '../../assets/Icons/Google.svg';
 
 const Footer = () => {
   return (
@@ -13,8 +13,7 @@ const Footer = () => {
           <div className="footer_content">
             <img src={HeaderLogo} alt="" className="sindoor_footer_Logo" />
             <p className="footer_p">
-              Lorem Ipsum is simply dummy text of <br /> the printing and
-              typesetting industry
+              Lorem Ipsum is simply dummy text of <br /> the printing and typesetting industry
             </p>
             <div className="downloads_app_div">
               <img src={Apple} alt="" className="footer_AppStore_btn" />
@@ -22,7 +21,9 @@ const Footer = () => {
             </div>
             <div className="downloads_app_div2">
               <span className="terms_p">Terms & Conditions</span>
-              <span className="privacy_p">Privacy Policy</span>
+              <a href="/PrivacyPolicy" className="privacy_p">
+                Privacy Policy
+              </a>
             </div>
           </div>
           {/* content footer Div */}
@@ -30,15 +31,10 @@ const Footer = () => {
             <span className="footer_year">© 2022 </span>
             <span className="footer_name">Sindoor, </span>
             <span className="footer_develop">Developed by </span>
-            <a
-              href="https://www.falconconsulting.fr"
-              className="footer_company_name"
-            >
-              Falcon Consulting.{" "}
+            <a href="https://www.falconconsulting.fr" className="footer_company_name">
+              Falcon Consulting.{' '}
             </a>
-            <span className="footer_company_allRights">
-              All rights reserved.
-            </span>
+            <span className="footer_company_allRights">All rights reserved.</span>
           </div>
         </div>
       </div>
