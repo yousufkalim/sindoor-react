@@ -1,9 +1,10 @@
 import react from "react";
 import { toast } from "react-toastify";
+import api from "../../api";
 
 const getForm = () => {
   const [formData, setFormData] = react.useState({
-    fullname: "",
+    name: "",
     email: "",
     message: "",
   });
@@ -11,7 +12,7 @@ const getForm = () => {
   const formSubmitClick = (e) => {
     e.preventDefault();
 
-    if (formData.fullname === "") {
+    if (formData.name === "") {
       return toast.error("Please enter your username");
     }
     if (formData.email === "") {
@@ -26,10 +27,15 @@ const getForm = () => {
       ...formData,
       [name]: value,
     });
-    setFormData(
-      { fullname: "", email: "", message: "" },
-      toast.success("Submited Form")
-    );
+
+    api("post", "/admins/contact", formData)
+      .then((resp) => {
+        setFormData({ name: "", email: "", message: "" });
+        toast.success(resp.data.message);
+      })
+      .catch((err) => {
+        throw err;
+      });
   };
 
   const formChangeEvent = (e) => {
@@ -50,8 +56,8 @@ const getForm = () => {
             </label>
             <input
               type="text"
-              name="fullname"
-              value={formData.fullname}
+              name="name"
+              value={formData.name}
               className="GetaQuote_inputs"
               placeholder="Type here"
               onChange={formChangeEvent}

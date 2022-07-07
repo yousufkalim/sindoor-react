@@ -1,5 +1,7 @@
 /* Importing all CSS files */
 @import url("./Home/Header.css");
+@import url("./TermsConditions/TermsConditions.css");
+@import url("./TermsConditions/Files.css");
 
 /* Defaults */
 * {

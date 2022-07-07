@@ -1,0 +1,55 @@
+.filetittle{
+    color: #000000;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+}
+.icon{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -2.2rem;
+    cursor: pointer;
+}
+.card{
+    border: none;
+}
+.list-group-item{
+    background-color: #F5F6F8;
+    border: none;
+    padding: 2rem;
+}
+.downloadimg{
+    cursor: pointer;
+}
+.btn{
+    border: none;
+    background-color: #FAFAFA;
+    width: 100%;
+    text-align: left;
+}
+.filename{
+    margin-left: 2rem;
+    color: #3A3E4A;
+    font-weight: 600;
+}
+.filesize{
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    margin-left: 83px;
+    margin-top: -16px;
+    color: #9497A1;
+}
+.tittle{
+    background-color: #FFFFFF;
+    box-shadow: 0px 5px 19px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 2%;
+}
+.subtittle{
+    background-color: #FFFFFF;
+    padding: 2%;
+    box-shadow: 0px 5px 19px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
