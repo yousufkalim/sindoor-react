@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
             <div className="downloads_app_div2">
               <span className="terms_p">Terms & Conditions</span>
-              <a href="/PrivacyPolicy" className="privacy_p">
+              <a href="/privacy" className="privacy_p">
                 Privacy Policy
               </a>
             </div>

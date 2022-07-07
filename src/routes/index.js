@@ -10,7 +10,7 @@ const index = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
+      <Route exact path="/privacy" component={PrivacyPolicy} />
     </Switch>
   );
 };
