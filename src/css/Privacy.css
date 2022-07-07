@@ -1,0 +1,88 @@
+.about_second,
+.intro-container {
+  width: 90%;
+  margin: 2% auto;
+}
+
+.about_h1_div {
+  text-align: center;
+  margin-bottom: 3%;
+}
+/* .intro-centerDiv {
+  border: 1px solid red;
+} */
+.intro-centerDiv {
+  margin: 5% 0;
+}
+.introH2 {
+  text-align: center;
+  margin-bottom: 3%;
+}
+.introHeading {
+  margin-bottom: 3%;
+}
+.introQuandDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1% 0;
+  box-shadow: 1px 2px 4px -1px rgb(0 0 0 / 35%);
+  padding: 10px 10px;
+}
+.introLi {
+  list-style: none;
+  padding: 5px 0;
+}
+.quandUl {
+  display: none;
+}
+.quandUlActive {
+  display: block;
+}
+.introShowIcon {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: black;
+}
+
+.introP {
+  padding: 1% 0;
+  font-size: 18px;
+}
+.about_P {
+  padding: 1% 0;
+  font-size: 18px;
+}
+.intro_num {
+  background: #003b7e;
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px 13px;
+  margin-right: 10px;
+  font-weight: 100;
+}
+@media screen and (max-width: 600px) {
+  .about_img_logo {
+    height: 4rem;
+  }
+  .about_title {
+    font-size: 20px;
+    padding-bottom: 4%;
+  }
+  .about_P {
+    font-size: 14px;
+  }
+  .introShowIcon {
+    font-size: 21px;
+  }
+  .introHeadingH4 {
+    font-size: 10px;
+  }
+  .intro_num {
+    padding: 5px 9px;
+  }
+  .introHeadingH3 {
+    font-size: 10px;
+    padding: 2% 0;
+  }
+}

@@ -14,16 +14,17 @@ const Footer = () => {
           <div className="footer_content">
             <img src={HeaderLogo} alt="" className="sindoor_footer_Logo" />
             <p className="footer_p">
-              Lorem Ipsum is simply dummy text of <br /> the printing and
-              typesetting industry
+              Lorem Ipsum is simply dummy text of <br /> the printing and typesetting industry
             </p>
             <div className="downloads_app_div">
               <img src={Apple} alt="" className="footer_AppStore_btn" />
               <img src={Google} alt="" className="footer_Google_btn" />
             </div>
             <div className="downloads_app_div2">
+              <Link to='/privacy' className="privacy_p">
+                Privacy Policy
+              </Link>
               <Link to='/termsconditions' className="terms_p">Terms & Conditions</Link>
-              <span className="privacy_p">Privacy Policy</span>
             </div>
           </div>
           {/* content footer Div */}
@@ -31,15 +32,10 @@ const Footer = () => {
             <span className="footer_year">© 2022 </span>
             <span className="footer_name">Sindoor, </span>
             <span className="footer_develop">Developed by </span>
-            <a
-              href="https://www.falconconsulting.fr"
-              className="footer_company_name"
-            >
-              Falcon Consulting.{" "}
+            <a href="https://www.falconconsulting.fr" className="footer_company_name">
+              Falcon Consulting.{' '}
             </a>
-            <span className="footer_company_allRights">
-              All rights reserved.
-            </span>
+            <span className="footer_company_allRights">All rights reserved.</span>
           </div>
         </div>
       </div>
