@@ -13,10 +13,10 @@ const GetaQuote = () => {
         <div className="GetaQuote_center_Div">
           <div className="GetaQuote_colmn">
             <div className="GetaQuote_content">
-              <h3 className="GetaQuote_title">Get a Quote</h3>
+              <h3 className="GetaQuote_title">Obtenir un devis</h3>
               <p className="GetaQuote_p">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's{" "}
+                
+Fournissez-nous les détails de votre événement et nous vous répondrons sous peu.
               </p>
             </div>
             <div className="GetaQuote_GIF_div">
