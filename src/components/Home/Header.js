@@ -17,13 +17,14 @@ export default function Header() {
             <ul className="sindoor_ul">
               <li className="sindoor_li">
                 <a className="sindoor_ankerMeu sindoorActive" href="#about">
-                  About
+                À propos de
+
                 </a>
                 <a className="sindoor_ankerMeu" href="#Features">
-                  Features
+                Fonctionnalités
                 </a>
                 <a className="sindoor_ankerMeu" href="#getForm">
-                  Contact us
+                Contactez-nous
                 </a>
               </li>
             </ul>
@@ -31,7 +32,7 @@ export default function Header() {
           {/* colm second Div */}
           {/* colm third Div */}
           <div className="sindoor_downloadApp_div">
-            <button className="downloadApp_btn">Download App</button>
+            <a href="https://play.google.com/store/apps/details?id=com.sindoor_rn" target="_blank"><button className="downloadApp_btn">Télécharger l'application</button></a>
           </div>
           {/* colm third Div */}
         </div>
