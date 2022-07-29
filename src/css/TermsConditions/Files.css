@@ -88,7 +88,15 @@
 /*For Mobile*/
 @media screen and (max-width:500px) {
         .titleHeading h4{
-        font-size: 20px;
-        
+        font-size: 18px;
+        font-weight: 400;
     }
+    .order{
+         padding: 4px 11px;
+         font-size: 16px;
+    }
+    .order-color{
+    padding: 4px 11px;
+    font-size: 16px;
+}
 }
