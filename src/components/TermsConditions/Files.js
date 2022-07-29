@@ -34,18 +34,21 @@ class Files extends Component {
     const { showFileInfo4 } = this.state;
     const { showFileInfo5 } = this.state;
     const { showFileInfo6 } = this.state;
+
     return (
       <div>
         <div className="card card-body mb-1">
-          <div className="tittle">
-            <h4 className="filetittle">
-              {" "}
-              <img src={tittleimage} /> &nbsp; &nbsp; Conditions générales de réservation
+          <div className="tittle filetittle">
+            <span className={showFileInfo ? "order-color": "order"}>1</span>
+            <div className="justifySpace" >
+            <div className="titleHeading" >
+            <h4> Conditions générales de réservation</h4>
+            </div>
               <i
                 onClick={() => this.setState({ showFileInfo: !this.state.showFileInfo })}
-                className={this.state.showFileInfo ? "fas fa-minus icon" : "fas fa-plus icon"}
+                className={this.state.showFileInfo ? " fas fa-minus icon" : "fas fa-plus icon"}
               ></i>
-            </h4>
+              </div>
           </div>
           {showFileInfo ? (
             <ul className="list-group">
@@ -543,14 +546,17 @@ class Files extends Component {
         </div>
 
         <div className="card card-body mb-1">
-          <div className="tittle">
-            <h4 className="filetittle">
-              <img src={tittleimage} /> &nbsp; &nbsp; Conditions et politiques de Sindoor
+          <div className="tittle filetittle">
+          <span className={showFileInfo2 ? "order-color": "order"}>2</span>
+          <div className="justifySpace" >
+            <div className="titleHeading" >
+            <h4>Conditions et politiques de Sindoor</h4>
+            </div>
               <i
                 onClick={() => this.setState({ showFileInfo2: !this.state.showFileInfo2 })}
                 className={this.state.showFileInfo2 ? "fas fa-minus icon" : "fas fa-plus icon"}
               ></i>
-            </h4>
+            </div>
           </div>
           {showFileInfo2 ? (
             <ul className="list-group">
@@ -1078,15 +1084,17 @@ class Files extends Component {
         </div>
 
         <div className="card card-body mb-1">
-          <div className="tittle">
-            <h4 className="filetittle">
-              {" "}
-              <img src={tittleimage} /> &nbsp; &nbsp; Politique de confidentialité et des cookies
+          <div className="tittle filetittle">
+          <span className={showFileInfo3 ? "order-color": "order"}>3</span> 
+          <div className="justifySpace" >
+          <div className="titleHeading" >
+            <h4>Politique de confidentialité et des cookies</h4>
+            </div>
               <i
                 onClick={() => this.setState({ showFileInfo3: !this.state.showFileInfo3 })}
                 className={this.state.showFileInfo3 ? "fas fa-minus icon" : "fas fa-plus icon"}
               ></i>
-            </h4>
+            </div>
           </div>
           {showFileInfo3 ? (
             <ul className="list-group">
@@ -1645,15 +1653,17 @@ class Files extends Component {
         </div>
 
         <div className="card card-body mb-1">
-          <div className="tittle">
-            <h4 className="filetittle">
-              {" "}
-              <img src={tittleimage} /> &nbsp; &nbsp; Conditions commerciales entre Sindoor et le Prestataire
+          <div className="tittle filetittle">
+          <span className={showFileInfo4 ? "order-color": "order"}>4</span>
+          <div className="justifySpace" >
+          <div className="titleHeading" >
+            <h4> Conditions commerciales entre Sindoor et le Prestataire</h4>
+            </div>
               <i
                 onClick={() => this.setState({ showFileInfo4: !this.state.showFileInfo4 })}
                 className={this.state.showFileInfo4 ? "fas fa-minus icon" : "fas fa-plus icon"}
               ></i>
-            </h4>
+            </div>
           </div>
           {showFileInfo4 ? (
             <ul className="list-group">
@@ -3718,16 +3728,19 @@ class Files extends Component {
         </div>
 
         <div className="card card-body mb-1">
-          <div className="tittle">
-            <h4 className="filetittle">
-              {" "}
-              <img src={tittleimage} /> &nbsp; &nbsp; Politique du contenu généré par l’utilisateur
+          <div className="tittle filetittle">
+          <span className={showFileInfo5 ? "order-color": "order"}>5</span> 
+          <div className="justifySpace" >
+          <div className="titleHeading" >
+            <h4>Politique du contenu généré par l’utilisateur</h4>
+            </div>
               <i
                 onClick={() => this.setState({ showFileInfo5: !this.state.showFileInfo5 })}
                 className={this.state.showFileInfo5 ? "fas fa-minus icon" : "fas fa-plus icon"}
               ></i>
-            </h4>
           </div>
+          </div>
+
           {showFileInfo5 ? (
             <ul className="list-group">
               <li className="list-group-item" style={{ display: "flex" }}>
@@ -3949,14 +3962,17 @@ class Files extends Component {
         </div>
 
         <div className="card card-body mb-1">
-          <div className="tittle">
-            <h4 className="filetittle">
-              <img src={tittleimage} /> &nbsp; &nbsp; Guide des Avis
+          <div className="tittle filetittle">
+          <span className={showFileInfo6 ? "order-color": "order"}>6</span>
+          <div className="justifySpace">
+          <div className="titleHeading">
+            <h4>Guide des Avis</h4>
+            </div>
               <i
                 onClick={() => this.setState({ showFileInfo6: !this.state.showFileInfo6 })}
                 className={this.state.showFileInfo6 ? "fas fa-minus icon" : "fas fa-plus icon"}
               ></i>
-            </h4>
+              </div>
           </div>
           {showFileInfo6 ? (
             <ul className="list-group">
