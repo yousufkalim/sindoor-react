@@ -52,21 +52,21 @@ const getForm = () => {
         >
           <div>
             <label htmlFor="" className="GetaQuote_label">
-              Full Name
+            Nom et prénom
             </label>
             <input
               type="text"
               name="name"
               value={formData.name}
               className="GetaQuote_inputs"
-              placeholder="Type here"
+              placeholder="John Doe"
               onChange={formChangeEvent}
               // required
             />
           </div>
           <div>
             <label htmlFor="email" className="GetaQuote_label">
-              Email Address
+            Adresse e-mail
             </label>
             <input
               type="text"
@@ -86,7 +86,7 @@ const getForm = () => {
               type="text"
               rows={5}
               className="GetaQuote_inputs"
-              placeholder="Type Something"
+              placeholder="La description..."
               name="message"
               value={formData.message}
               onChange={formChangeEvent}
@@ -95,7 +95,7 @@ const getForm = () => {
           </div>
           <div>
             <button className="GetaQuote_btn" type="submit">
-              Send Message
+            Envoyer le message
             </button>
           </div>
         </form>
