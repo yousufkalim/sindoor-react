@@ -22,6 +22,9 @@
 }
 .Features_colmn {
   padding: 0 2vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .Features_clnder {
   width: 6.5vw;
