@@ -1,9 +1,9 @@
-import React from "react";
-import "../../css/Home/Footer.css";
-import HeaderLogo from "../../assets/Icons/HeaderLogo.svg";
-import Apple from "../../assets/Icons/Apple.svg";
-import Google from "../../assets/Icons/Google.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import '../../css/Home/Footer.css';
+import HeaderLogo from '../../assets/Icons/HeaderLogo.svg';
+import Apple from '../../assets/Icons/Apple.svg';
+import Google from '../../assets/Icons/Google.svg';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,18 +14,27 @@ const Footer = () => {
           <div className="footer_content">
             <img src={HeaderLogo} alt="" className="sindoor_footer_Logo" />
             <p className="footer_p">
-            Sindoor est disponible aussi bien en français qu’en anglais et <br/> tend à proposer plusieurs milliers de prestataires.
-
+              Sindoor est disponible aussi bien en français qu’en anglais et <br /> tend à proposer
+              plusieurs milliers de prestataires.
             </p>
             <div className="downloads_app_div">
-              <img src={Apple} alt="" className="footer_AppStore_btn" />
-              <img src={Google} alt="" className="footer_Google_btn" />
+              <a href="https://apps.apple.com/app/sindoor/id1624458201" target="_blank">
+                <img src={Apple} alt="" className="footer_AppStore_btn" />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.sindoor_rn"
+                target="_blank"
+              >
+                <img src={Google} alt="" className="footer_Google_btn" />
+              </a>
             </div>
             <div className="downloads_app_div2">
-              <Link to='/privacy' className="privacy_p">
-              Politique de Confidentialité
+              <Link to="/privacy" className="privacy_p">
+                Politique de Confidentialité
               </Link>
-              <Link to='/termsconditions' className="terms_p">Termes et Conditions</Link>
+              <Link to="/termsconditions" className="terms_p">
+                Termes et Conditions
+              </Link>
             </div>
           </div>
           {/* content footer Div */}
