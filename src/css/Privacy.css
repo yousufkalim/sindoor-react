@@ -61,6 +61,18 @@
   margin-right: 10px;
   font-weight: 100;
 }
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+  margin: -9px 0 0 -11px !important;
+}
+.makeStyles-textField-4 {
+  padding: 8px 0 !important;
+}
+.makeStyles-input-8 {
+  margin: 13px 0 !important;
+}
+.MuiFormHelperText-root {
+  margin-top: -10px !important;
+}
 @media screen and (max-width: 600px) {
   .about_img_logo {
     height: 4rem;
