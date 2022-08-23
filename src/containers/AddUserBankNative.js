@@ -18,6 +18,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import InputWithLabel from '../components/InputWithLabel';
 import { baseUrl, stripePK } from '../config';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const steps = ['Détails de la personne', 'Coordonnées bancaires'];
 const useStyles = makeStyles({
@@ -52,7 +53,7 @@ let token = '';
 const AddUserBankNative = () => {
   let { userId } = useParams();
   const [user, setUser] = useState({});
-
+  const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
@@ -223,6 +224,7 @@ const AddUserBankNative = () => {
   const handleSubmit = async () => {
     try {
       setDisable(true);
+      setLoading(true);
       let errors = validate(bankDetails, bankSchema);
       setBankErrors(errors || {});
       if (errors != null) {
@@ -233,11 +235,13 @@ const AddUserBankNative = () => {
       if (err && err.length != 0) {
         toast.error(err[0]);
         setDisable(false);
+        setLoading(false);
         return;
       }
       let data = await addRes();
     } catch (error) {
       setDisable(false);
+      setLoading(false);
       if ({ ...error }) {
         toast.error({ ...error }.response.data.message);
       } else {
@@ -256,6 +260,8 @@ const AddUserBankNative = () => {
       await axios(config).then((resp) => {
         if (resp.data.success) {
           toast.success(resp.data.message);
+          setLoading(false);
+
           window.location.search = 'redirect=true';
         }
 
@@ -263,6 +269,8 @@ const AddUserBankNative = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
       });
     } catch (error) {
+      setLoading(false);
+
       setDisable(false);
       if ({ ...error }) {
         toast.error({ ...error }.response.data.message);
@@ -581,6 +589,17 @@ const AddUserBankNative = () => {
     >
       <div
         style={{
+          display: loading ? 'flex' : 'none',
+          position: 'absolute',
+          backgroundColor: 'transparent',
+          height: '100vh',
+          alignItems: 'center',
+        }}
+      >
+        <CircularProgress color="secondary" />
+      </div>
+      <div
+        style={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -752,8 +771,8 @@ const AddUserBankNative = () => {
                   </div>
 
                   {/* <FormLabel component="legend" style={{ color: '#E45A5A', marginBottom: '20px' }}>
-                    Adresse
-                  </FormLabel> */}
+                   Adresse
+                 </FormLabel> */}
                   <br />
                   <InputWithLabel
                     value={personDetails['address']}
@@ -956,6 +975,7 @@ const AddUserBankNative = () => {
           )}
         </Box>
       </div>
+      {/* )} */}
     </div>
   );
 };
