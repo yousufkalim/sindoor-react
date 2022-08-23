@@ -986,7 +986,7 @@ const AddBankNative = () => {
                       <div
                         style={{
                           position: 'absolute',
-                          marginTop: '24px',
+                          marginTop: '11px',
                           marginLeft: '7px',
                         }}
                       >
@@ -1180,7 +1180,7 @@ const AddBankNative = () => {
                     <div
                       style={{
                         position: 'absolute',
-                        marginTop: '24px',
+                        marginTop: '11px',
                         marginLeft: '7px',
                       }}
                     >
