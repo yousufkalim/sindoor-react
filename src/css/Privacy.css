@@ -64,6 +64,7 @@
 .MuiInputLabel-outlined.MuiInputLabel-shrink {
   margin: -20px 0 0 -11px !important;
 }
+
 .makeStyles-textField-4 {
   padding: 8px 0 !important;
 }
@@ -85,6 +86,9 @@
 }
 .jss7 {
   margin-bottom: 42px !important;
+}
+.jss2 {
+  padding-top: 38px !important;
 }
 @media screen and (max-width: 600px) {
   .about_img_logo {
