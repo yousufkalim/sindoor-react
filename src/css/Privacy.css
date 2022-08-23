@@ -76,6 +76,13 @@
 .MuiTypography-caption {
   margin: -20px 0 !important;
 }
+.MuiStepper-horizontal {
+  padding: 22px 0 !important;
+}
+
+.makeStyles-imgDiv-2 {
+  margin-top: 5% !important;
+}
 @media screen and (max-width: 600px) {
   .about_img_logo {
     height: 4rem;
