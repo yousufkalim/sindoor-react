@@ -73,6 +73,9 @@
 .MuiFormHelperText-root {
   margin-top: -10px !important;
 }
+.MuiTypography-caption {
+  margin: -20px 0 !important;
+}
 @media screen and (max-width: 600px) {
   .about_img_logo {
     height: 4rem;

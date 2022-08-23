@@ -754,6 +754,7 @@ const AddUserBankNative = () => {
                   {/* <FormLabel component="legend" style={{ color: '#E45A5A', marginBottom: '20px' }}>
                     Adresse
                   </FormLabel> */}
+                  <br />
                   <InputWithLabel
                     value={personDetails['address']}
                     name="address"
