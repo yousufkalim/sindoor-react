@@ -948,7 +948,7 @@ const AddUserBankNative = () => {
                     onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
                     disabled={disable}
                   >
-                    {activeStep === steps.length - 1 ? 'Finir' : 'Retour'}
+                    {activeStep === steps.length - 1 ? 'Finir' : 'suivante'}
                   </Button>
                 </div>
               </Box>
