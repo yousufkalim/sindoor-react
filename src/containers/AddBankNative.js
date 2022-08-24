@@ -18,6 +18,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import InputWithLabel from '../components/InputWithLabel';
 import { baseUrl, stripePK } from '../config';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const steps = ['Détails de la personne', "Détails de l'entreprise", 'Coordonnées bancaires'];
 const useStyles = makeStyles({
@@ -53,7 +54,7 @@ let personToken = '';
 const AddBankNative = () => {
   let { userId } = useParams();
   const [user, setUser] = useState({});
-
+  const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
@@ -276,6 +277,7 @@ const AddBankNative = () => {
   const handleSubmit = async () => {
     try {
       setDisable(true);
+      setLoading(true);
       let errors = validate(bankDetails, bankSchema);
       setBankErrors(errors || {});
       if (errors != null) {
@@ -286,11 +288,15 @@ const AddBankNative = () => {
       if (err && err.length != 0) {
         toast.error(err[0]);
         setDisable(false);
+        setLoading(false);
+
         return;
       }
       let data = await addRes();
     } catch (error) {
       setDisable(false);
+      setLoading(false);
+
       if ({ ...error }) {
         toast.error({ ...error }.response.data.message);
       } else {
@@ -310,6 +316,8 @@ const AddBankNative = () => {
       await axios(config).then((resp) => {
         if (resp.data.success) {
           toast.success(resp.data.message);
+          setLoading(false);
+
           window.location.search = 'redirect=true';
         }
 
@@ -317,6 +325,7 @@ const AddBankNative = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
       });
     } catch (error) {
+      setLoading(false);
       setDisable(false);
       if ({ ...error }) {
         toast.error({ ...error }.response.data.message);
@@ -834,13 +843,26 @@ const AddBankNative = () => {
     >
       <div
         style={{
-          //   height: "100vh",
+          display: loading ? 'flex' : 'none',
+          position: 'absolute',
+          backgroundColor: 'transparent',
+          height: '100%',
+          width: '100vw',
+          alignItems: 'center',
+          backgroundColor: 'rgba(180, 184, 178, 0.6)',
+          justifyContent: 'center',
+          zIndex: 200,
+        }}
+      >
+        <CircularProgress color="error" />
+      </div>
+      <div
+        style={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           width: '90%',
-          //   width: "20%",
           marginTop: '2em',
           marginBottom: '2em',
         }}
