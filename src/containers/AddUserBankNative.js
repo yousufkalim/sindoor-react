@@ -7,48 +7,48 @@ import {
   Stepper,
   TextField,
   Typography,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-import { useStripe } from '@stripe/react-stripe-js';
-import axios from 'axios';
-import Joi from 'joi-browser';
-import moment from 'moment';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import InputWithLabel from '../components/InputWithLabel';
-import { baseUrl, stripePK } from '../config';
-import CircularProgress from '@mui/material/CircularProgress';
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import { useStripe } from "@stripe/react-stripe-js";
+import axios from "axios";
+import Joi from "joi-browser";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import InputWithLabel from "../components/InputWithLabel";
+import { baseUrl, stripePK } from "../config";
+import CircularProgress from "@mui/material/CircularProgress";
 
-const steps = ['Détails de la personne', 'Coordonnées bancaires'];
+const steps = ["Détails de la personne", "Coordonnées bancaires"];
 const useStyles = makeStyles({
   form: {
-    marginTop: '15px',
-    maxWidth: '100%',
+    marginTop: "15px",
+    maxWidth: "100%",
   },
   imgDiv: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    paddingTop: '10px',
+    display: "flex",
+    justifyContent: "space-between",
+    paddingTop: "10px",
   },
   submitBtn: {
-    marginTop: '10px',
-    marginBottom: '10px',
-    width: '100%',
+    marginTop: "10px",
+    marginBottom: "10px",
+    width: "100%",
   },
   textField: {
-    width: '100%',
-    marginBottom: '20px',
-    color: 'red',
+    width: "100%",
+    marginBottom: "20px",
+    color: "red",
   },
   phoneStyle: {
-    '& .MuiInputBase-input': {
-      marginLeft: '27px',
+    "& .MuiInputBase-input": {
+      marginLeft: "27px",
     },
   },
 });
 
-let token = '';
+let token = "";
 
 const AddUserBankNative = () => {
   let { userId } = useParams();
@@ -58,25 +58,25 @@ const AddUserBankNative = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [personDetails, setpersonDetails] = useState({
-    firstName: '',
-    lastName: '',
-    dob: '2000-01-01',
-    phone: '',
-    address: '',
-    postalCode: '',
-    city: '',
+    firstName: "",
+    lastName: "",
+    dob: "2000-01-01",
+    phone: "",
+    address: "",
+    postalCode: "",
+    city: "",
   });
 
   const [bankDetails, setBankDetails] = useState({
-    bankName: '',
-    iban: '',
+    bankName: "",
+    iban: "",
   });
 
   const [frontError, setFrontError] = useState(false);
   const [backError, setBackError] = useState(false);
 
-  const [front, setFront] = useState('');
-  const [back, setBack] = useState('');
+  const [front, setFront] = useState("");
+  const [back, setBack] = useState("");
 
   const [personErrors, setPersonErrors] = useState({});
   const [bankErrors, setBankErrors] = useState({});
@@ -96,23 +96,23 @@ const AddUserBankNative = () => {
       let errors = validate(personDetails, personSchema);
       let allErrors = { ...errors };
 
-      let diff = moment().diff(personDetails['dob'], 'years', false);
+      let diff = moment().diff(personDetails["dob"], "years", false);
       if (diff < 13) {
-        allErrors['dob'] = "L'âge doit être supérieur à 13 ans";
+        allErrors["dob"] = "L'âge doit être supérieur à 13 ans";
       }
       setPersonErrors(allErrors || {});
 
-      if (front === '') {
+      if (front === "") {
         setFrontError(true);
       } else {
         setFrontError(false);
       }
-      if (back === '') {
+      if (back === "") {
         setBackError(true);
       } else {
         setBackError(false);
       }
-      if (errors != null || front === '' || back === '') {
+      if (errors != null || front === "" || back === "") {
         return;
       } else {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -128,14 +128,14 @@ const AddUserBankNative = () => {
     const { name, value, checked, files } = e.target;
 
     if (
-      name === 'director' ||
-      name === 'executive' ||
-      name === 'owner' ||
-      name === 'representative'
+      name === "director" ||
+      name === "executive" ||
+      name === "owner" ||
+      name === "representative"
     ) {
       setpersonDetails((prev) => ({ ...prev, [name]: checked }));
-    } else if (name === 'dob') {
-      let diff = moment().diff(value, 'years', false);
+    } else if (name === "dob") {
+      let diff = moment().diff(value, "years", false);
       if (diff >= 13) {
         setpersonDetails((prev) => ({ ...prev, [name]: value }));
         const allErrors = { ...personErrors };
@@ -147,7 +147,7 @@ const AddUserBankNative = () => {
         allErrors[name] = "L'âge doit être supérieur à 13 ans";
         setPersonErrors(allErrors);
       }
-    } else if (name === 'phone') {
+    } else if (name === "phone") {
       if (value.length <= 9) {
         const allErrors = { ...personErrors };
         const errorMessage = validateProperty(name, value, personSchema);
@@ -156,7 +156,7 @@ const AddUserBankNative = () => {
         setPersonErrors(allErrors);
         setpersonDetails((prev) => ({ ...prev, [name]: value }));
       }
-    } else if (name === 'postalCode') {
+    } else if (name === "postalCode") {
       if (value.length <= 5) {
         const allErrors = { ...personErrors };
         const errorMessage = validateProperty(name, value, personSchema);
@@ -165,9 +165,9 @@ const AddUserBankNative = () => {
         setPersonErrors(allErrors);
         setpersonDetails((prev) => ({ ...prev, [name]: value }));
       }
-    } else if (name === 'front') {
+    } else if (name === "front") {
       setFront(files[0]);
-    } else if (name === 'back') {
+    } else if (name === "back") {
       setBack(files[0]);
     } else {
       const allErrors = { ...personErrors };
@@ -181,7 +181,7 @@ const AddUserBankNative = () => {
 
   const handleBankDataChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'iban') {
+    if (name === "iban") {
       if (value.length <= 27) {
         const allErrors = { ...bankErrors };
         const errorMessage = validateProperty(name, value, bankSchema);
@@ -253,7 +253,7 @@ const AddUserBankNative = () => {
   const addRes = async () => {
     try {
       let config = {
-        method: 'put',
+        method: "put",
         url: `${baseUrl}/users/add-bank/${userId}`,
         data: appendBankInfoForToFormData(),
       };
@@ -262,7 +262,7 @@ const AddUserBankNative = () => {
           toast.success(resp.data.message);
           setLoading(false);
 
-          window.location.search = 'redirect=true';
+          window.location.search = "redirect=true";
         }
 
         setDisable(false);
@@ -282,34 +282,34 @@ const AddUserBankNative = () => {
 
   const appendBankInfoForToFormData = () => {
     const fd = new FormData();
-    const date = JSON.stringify(new Date(personDetails['dob']));
-    fd.append('phone', personDetails['phone']);
-    fd.append('DOB', date);
-    fd.append('bankName', bankDetails['bankName']);
-    fd.append('iban', bankDetails['iban']);
-    fd.append('front', front);
-    fd.append('back', back);
-    fd.append('token', token.token.id);
+    const date = JSON.stringify(new Date(personDetails["dob"]));
+    fd.append("phone", personDetails["phone"]);
+    fd.append("DOB", date);
+    fd.append("bankName", bankDetails["bankName"]);
+    fd.append("iban", bankDetails["iban"]);
+    fd.append("front", front);
+    fd.append("back", back);
+    fd.append("token", token.token.id);
     return fd;
   };
 
   const getToken = async () => {
     //Retrieving front and back documentation ids//
     const frontData = new FormData();
-    frontData.append('file', front);
-    frontData.append('purpose', 'identity_document');
-    const frontfileResult = await fetch('https://uploads.stripe.com/v1/files', {
-      method: 'POST',
+    frontData.append("file", front);
+    frontData.append("purpose", "identity_document");
+    const frontfileResult = await fetch("https://uploads.stripe.com/v1/files", {
+      method: "POST",
       headers: { Authorization: `Bearer ${stripePK}` },
       body: frontData,
     });
     const backData = new FormData();
 
-    backData.append('file', back);
-    backData.append('purpose', 'identity_document');
+    backData.append("file", back);
+    backData.append("purpose", "identity_document");
 
-    const backfileResult = await fetch('https://uploads.stripe.com/v1/files', {
-      method: 'POST',
+    const backfileResult = await fetch("https://uploads.stripe.com/v1/files", {
+      method: "POST",
       headers: { Authorization: `Bearer ${stripePK}` },
       body: frontData,
     });
@@ -327,28 +327,28 @@ const AddUserBankNative = () => {
   };
 
   const getAccountToken = async (frontfileData, backfileData) => {
-    let day = moment(personDetails['dob']).format('D');
-    let month = moment(personDetails['dob']).format('M');
-    let year = moment(personDetails['dob']).format('Y');
+    let day = moment(personDetails["dob"]).format("D");
+    let month = moment(personDetails["dob"]).format("M");
+    let year = moment(personDetails["dob"]).format("Y");
 
     try {
       //Creating account token//
-      const accountResult = await stripe.createToken('account', {
-        business_type: 'individual',
+      const accountResult = await stripe.createToken("account", {
+        business_type: "individual",
         individual: {
-          first_name: personDetails['firstName'],
-          last_name: personDetails['lastName'],
+          first_name: personDetails["firstName"],
+          last_name: personDetails["lastName"],
           address: {
-            line1: personDetails['address'],
-            postal_code: personDetails['postalCode'],
-            city: personDetails['city'],
+            line1: personDetails["address"],
+            postal_code: personDetails["postalCode"],
+            city: personDetails["city"],
           },
           dob: {
             day: day,
             month: month,
             year: year,
           },
-          phone: '+33' + personDetails['phone'],
+          phone: "+33" + personDetails["phone"],
           email: user.email,
           verification: {
             document: {
@@ -377,17 +377,17 @@ const AddUserBankNative = () => {
     firstName: Joi.string()
       .min(3)
       .required()
-      .label('Prénom')
+      .label("Prénom")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -399,17 +399,17 @@ const AddUserBankNative = () => {
     lastName: Joi.string()
       .min(3)
       .required()
-      .label('Nom de famille')
+      .label("Nom de famille")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -420,12 +420,12 @@ const AddUserBankNative = () => {
       }),
 
     dob: Joi.date()
-      .label('Date of birth')
+      .label("Date of birth")
       .required()
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
             default:
@@ -437,19 +437,19 @@ const AddUserBankNative = () => {
 
     phone: Joi.string()
       .required()
-      .label('Téléphone')
+      .label("Téléphone")
       .min(9)
       .max(9)
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -460,17 +460,17 @@ const AddUserBankNative = () => {
       }),
     address: Joi.string()
       .required()
-      .label('Adresse')
+      .label("Adresse")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -482,17 +482,17 @@ const AddUserBankNative = () => {
     city: Joi.string()
       .min(3)
       .required()
-      .label('Ville')
+      .label("Ville")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -505,17 +505,17 @@ const AddUserBankNative = () => {
       .min(5)
       .max(5)
       .required()
-      .label('Code Postal')
+      .label("Code Postal")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -533,17 +533,17 @@ const AddUserBankNative = () => {
   const bankSchema = {
     bankName: Joi.string()
       .required()
-      .label('Nom de banque')
+      .label("Nom de banque")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -556,17 +556,17 @@ const AddUserBankNative = () => {
       .min(27)
       .max(27)
       .required()
-      .label('Iban')
+      .label("Iban")
       .error((errors) => {
         errors.forEach((err) => {
           switch (err.type) {
-            case 'string.empty':
+            case "string.empty":
               err.message = `${err.context.label} ne doit pas être vide!`;
               break;
-            case 'string.min':
+            case "string.min":
               err.message = `${err.context.label} doit avoir au moins ${err.context.limit} Longs caractères!`;
               break;
-            case 'string.max':
+            case "string.max":
               err.message = `${err.context.label} devrait avoir au plus ${err.context.limit} Longs caractères!`;
               break;
             default:
@@ -580,51 +580,59 @@ const AddUserBankNative = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: '#FCFAFA',
-        minHeight: '100vh',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        backgroundColor: "#FCFAFA",
+        minHeight: "100vh",
       }}
     >
       <div
         style={{
-          display: loading ? 'flex' : 'none',
-          position: 'absolute',
-          backgroundColor: 'transparent',
-          height: '100vh',
-          alignItems: 'center',
+          display: loading ? "flex" : "none",
+          position: "absolute",
+          height: "100%",
+          width: "100vw",
+          alignItems: "center",
+          backgroundColor: "rgba(180, 184, 178, 0.6)",
+          justifyContent: "center",
+          zIndex: 200,
         }}
       >
-        <CircularProgress color="secondary" />
+        <CircularProgress color="error" />
       </div>
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '90%',
-          marginTop: '2em',
-          marginBottom: '2em',
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "90%",
+          marginTop: "2em",
+          marginBottom: "2em",
         }}
       >
         <Typography variant="h6">
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <b>Connectez votre compte bancaire</b>
-            <b style={{ color: '#E45A5A' }}>{`${user?.first_name} ${user?.last_name}`}</b>
+            <b>Sur quel compte souhaitez-vous recevoir l'argent disponible ?</b>
+            <b
+              style={{ color: "#E45A5A" }}
+            >{`${user?.first_name} ${user?.last_name}`}</b>
           </div>
         </Typography>
 
-        <Box sx={{ width: '100%' }}>
-          <Stepper activeStep={activeStep} style={{ backgroundColor: 'transparent' }}>
+        <Box sx={{ width: "100%" }}>
+          <Stepper
+            activeStep={activeStep}
+            style={{ backgroundColor: "transparent" }}
+          >
             {steps.map((label, index) => {
               const stepProps = {};
               const labelProps = {};
@@ -634,21 +642,22 @@ const AddUserBankNative = () => {
                     icon={
                       <div
                         style={{
-                          height: '1.6rem',
-                          backgroundColor: activeStep >= index ? '#E45A5A' : '#9C9C9C',
-                          width: '1.6rem',
-                          color: 'white',
-                          fontSize: '1rem',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          borderRadius: '0.8rem',
+                          height: "1.6rem",
+                          backgroundColor:
+                            activeStep >= index ? "#E45A5A" : "#9C9C9C",
+                          width: "1.6rem",
+                          color: "white",
+                          fontSize: "1rem",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "0.8rem",
                         }}
                       >
                         {index + 1}
                       </div>
                     }
-                    StepIconProps={{ sx: { color: 'red' } }}
+                    StepIconProps={{ sx: { color: "red" } }}
                     {...labelProps}
                   >
                     {label}
@@ -661,7 +670,7 @@ const AddUserBankNative = () => {
             <React.Fragment>
               <Typography
                 sx={{ mt: 2, mb: 1 }}
-                style={{ display: 'flex', justifyContent: 'center' }}
+                style={{ display: "flex", justifyContent: "center" }}
               >
                 Votre compte a été connecté.
               </Typography>
@@ -672,47 +681,51 @@ const AddUserBankNative = () => {
                 <div className={classes.form}>
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      height: '120px',
+                      display: "flex",
+                      justifyContent: "space-between",
+                      height: "120px",
                     }}
                   >
-                    <div style={{ width: '48%' }}>
+                    <div style={{ width: "48%" }}>
                       <InputWithLabel
-                        value={personDetails['firstName']}
+                        value={personDetails["firstName"]}
                         label="Prénom"
                         name="firstName"
                         required={true}
                         type="text"
                         handleChange={(e) => handlePersonDataChange(e)}
-                        error={personErrors['firstName'] ? true : false}
-                        errorMessage={personErrors['firstName']}
+                        error={personErrors["firstName"] ? true : false}
+                        errorMessage={personErrors["firstName"]}
                       />
                     </div>
-                    <div style={{ width: '48%' }}>
+                    <div style={{ width: "48%" }}>
                       <InputWithLabel
-                        value={personDetails['lastName']}
+                        value={personDetails["lastName"]}
                         name="lastName"
                         label="Nom de famille"
                         required={true}
                         type="text"
                         handleChange={(e) => handlePersonDataChange(e)}
-                        error={personErrors['lastName'] ? true : false}
-                        errorMessage={personErrors['lastName']}
+                        error={personErrors["lastName"] ? true : false}
+                        errorMessage={personErrors["lastName"]}
                       />
                     </div>
                   </div>
 
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      height: '90px',
+                      display: "flex",
+                      justifyContent: "space-between",
+                      height: "90px",
                     }}
                   >
-                    <div style={{ width: '48%', height: '50%' }}>
+                    <div style={{ width: "48%", height: "50%" }}>
                       <TextField
-                        value={personDetails['dob'] ? personDetails['dob'] : '2000-01-01'}
+                        value={
+                          personDetails["dob"]
+                            ? personDetails["dob"]
+                            : "2000-01-01"
+                        }
                         name="dob"
                         id="dob"
                         label="Date de naissance"
@@ -724,48 +737,52 @@ const AddUserBankNative = () => {
                         onChange={(e) => handlePersonDataChange(e)}
                         InputLabelProps={{
                           shrink: true,
-                          style: { color: '#E45A5A' },
+                          style: { color: "#E45A5A" },
                         }}
                         InputProps={{
                           disableUnderline: true,
                           style: {
-                            paddingTop: '6px',
-                            paddingBottom: '6px',
+                            paddingTop: "6px",
+                            paddingBottom: "6px",
                           },
                         }}
                       />
-                      {personErrors['dob'] && (
-                        <Typography component="div" variant="caption" style={{ color: 'red' }}>
-                          {personErrors['dob']}
+                      {personErrors["dob"] && (
+                        <Typography
+                          component="div"
+                          variant="caption"
+                          style={{ color: "red" }}
+                        >
+                          {personErrors["dob"]}
                         </Typography>
                       )}
                     </div>
                     <div
                       style={{
-                        width: '48%',
-                        display: 'flex',
-                        flexDirection: 'column',
+                        width: "48%",
+                        display: "flex",
+                        flexDirection: "column",
                       }}
                     >
                       <div
                         style={{
-                          position: 'absolute',
-                          marginTop: '11px',
-                          marginLeft: '7px',
+                          position: "absolute",
+                          marginTop: "11px",
+                          marginLeft: "7px",
                         }}
                       >
                         +33
                       </div>
                       <InputWithLabel
                         className={classes.phoneStyle}
-                        value={personDetails['phone']}
+                        value={personDetails["phone"]}
                         name="phone"
                         label="Numéro de téléphone"
                         required={true}
                         type="number"
                         handleChange={(e) => handlePersonDataChange(e)}
-                        error={personErrors['phone'] ? true : false}
-                        errorMessage={personErrors['phone']}
+                        error={personErrors["phone"] ? true : false}
+                        errorMessage={personErrors["phone"]}
                       />
                     </div>
                   </div>
@@ -775,43 +792,43 @@ const AddUserBankNative = () => {
                  </FormLabel> */}
                   <br />
                   <InputWithLabel
-                    value={personDetails['address']}
+                    value={personDetails["address"]}
                     name="address"
                     label="Adresse 1"
                     required={true}
                     type="text"
                     handleChange={(e) => handlePersonDataChange(e)}
-                    error={personErrors['address'] ? true : false}
-                    errorMessage={personErrors['address']}
+                    error={personErrors["address"] ? true : false}
+                    errorMessage={personErrors["address"]}
                   />
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
+                      display: "flex",
+                      justifyContent: "space-between",
                     }}
                   >
-                    <div style={{ width: '48%' }}>
+                    <div style={{ width: "48%" }}>
                       <InputWithLabel
-                        value={personDetails['postalCode']}
+                        value={personDetails["postalCode"]}
                         name="postalCode"
                         label="Code Postal"
                         required={true}
                         type="number"
                         handleChange={(e) => handlePersonDataChange(e)}
-                        error={personErrors['postalCode'] ? true : false}
-                        errorMessage={personErrors['postalCode']}
+                        error={personErrors["postalCode"] ? true : false}
+                        errorMessage={personErrors["postalCode"]}
                       />
                     </div>
-                    <div style={{ width: '48%' }}>
+                    <div style={{ width: "48%" }}>
                       <InputWithLabel
-                        value={personDetails['city']}
+                        value={personDetails["city"]}
                         name="city"
                         label="Ville"
                         required={true}
                         type="text"
                         handleChange={(e) => handlePersonDataChange(e)}
-                        error={personErrors['city'] ? true : false}
-                        errorMessage={personErrors['city']}
+                        error={personErrors["city"] ? true : false}
+                        errorMessage={personErrors["city"]}
                       />
                     </div>
                   </div>
@@ -819,24 +836,24 @@ const AddUserBankNative = () => {
                   <Typography
                     component="div"
                     variant="caption"
-                    style={{ color: '#E45A5A', textAlign: 'center' }}
+                    style={{ color: "#E45A5A", textAlign: "center" }}
                   >
                     <b>Télécharger l'identifiant Gouvernemental</b>
                   </Typography>
 
                   <div className={classes.imgDiv}>
-                    <div style={{ width: '50%' }}>
+                    <div style={{ width: "50%" }}>
                       <label
                         htmlFor="front"
                         style={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                          alignItems: 'flex-start',
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
                         }}
                       >
                         <input
-                          style={{ display: 'none' }}
+                          style={{ display: "none" }}
                           id="front"
                           name="front"
                           type="file"
@@ -847,40 +864,40 @@ const AddUserBankNative = () => {
                           variant="contained"
                           component="span"
                           color="secondary"
-                          style={{ fontSize: '10px' }}
+                          style={{ fontSize: "10px" }}
                         >
                           Visage Avant
                         </Button>
                         <br />
                         <div
                           style={{
-                            color: frontError ? '#E45A5A' : '',
-                            fontSize: frontError ? '12px' : '16px',
-                            wordBreak: 'break-all',
-                            width: '80%',
+                            color: frontError ? "#E45A5A" : "",
+                            fontSize: frontError ? "12px" : "16px",
+                            wordBreak: "break-all",
+                            width: "80%",
                           }}
                         >
                           {front
                             ? front.name
                             : frontError
-                            ? 'Le recto du document ne peut pas être vide'
-                            : ''}
+                            ? "Le recto du document ne peut pas être vide"
+                            : ""}
                         </div>
                       </label>
                     </div>
 
-                    <div style={{ width: '50%' }}>
+                    <div style={{ width: "50%" }}>
                       <label
                         htmlFor="back"
                         style={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                          alignItems: 'flex-end',
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "flex-end",
                         }}
                       >
                         <input
-                          style={{ display: 'none' }}
+                          style={{ display: "none" }}
                           id="back"
                           name="back"
                           type="file"
@@ -892,24 +909,24 @@ const AddUserBankNative = () => {
                           variant="contained"
                           component="span"
                           color="secondary"
-                          style={{ fontSize: '10px' }}
+                          style={{ fontSize: "10px" }}
                         >
                           Face Arrière
                         </Button>
                         <br />
                         <div
                           style={{
-                            color: backError ? '#E45A5A' : '',
-                            fontSize: backError ? '12px' : '16px',
-                            wordBreak: 'break-all',
-                            width: '80%',
+                            color: backError ? "#E45A5A" : "",
+                            fontSize: backError ? "12px" : "16px",
+                            wordBreak: "break-all",
+                            width: "80%",
                           }}
                         >
                           {back
                             ? back.name
                             : backError
-                            ? 'Le dos du document ne peut pas être vide'
-                            : ''}
+                            ? "Le dos du document ne peut pas être vide"
+                            : ""}
                         </div>
                       </label>
                     </div>
@@ -918,41 +935,41 @@ const AddUserBankNative = () => {
               ) : (
                 <div className={classes.form}>
                   <InputWithLabel
-                    value={bankDetails['bankName']}
+                    value={bankDetails["bankName"]}
                     label="Nom de banque"
                     required={true}
                     name="bankName"
                     type="text"
                     handleChange={(e) => handleBankDataChange(e)}
-                    error={bankErrors['bankName'] ? true : false}
-                    errorMessage={bankErrors['bankName']}
+                    error={bankErrors["bankName"] ? true : false}
+                    errorMessage={bankErrors["bankName"]}
                   />
                   <InputWithLabel
-                    value={bankDetails['iban']}
+                    value={bankDetails["iban"]}
                     label="Iban"
                     required={true}
                     name="iban"
                     type="text"
                     placeholder="Entrez un numéro IBAN à 27 chiffres"
                     handleChange={(e) => handleBankDataChange(e)}
-                    error={bankErrors['iban'] ? true : false}
-                    errorMessage={bankErrors['iban']}
+                    error={bankErrors["iban"] ? true : false}
+                    errorMessage={bankErrors["iban"]}
                   />
                 </div>
               )}
               <Box
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
+                  display: "flex",
+                  flexDirection: "row",
                   pt: 2,
                 }}
               >
                 <div
                   style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    width: '100%',
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    width: "100%",
                   }}
                 >
                   <Button
@@ -964,10 +981,14 @@ const AddUserBankNative = () => {
                     Retour
                   </Button>
                   <Button
-                    onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
+                    onClick={
+                      activeStep === steps.length - 1
+                        ? handleSubmit
+                        : handleNext
+                    }
                     disabled={disable}
                   >
-                    {activeStep === steps.length - 1 ? 'Finir' : 'suivante'}
+                    {activeStep === steps.length - 1 ? "Finir" : "suivante"}
                   </Button>
                 </div>
               </Box>
